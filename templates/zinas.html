@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="lv">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <h1>Ziņas</h1>
+    <form method="POST">
+        <label for="lietotajs_id">Izvēlieties lietotāju:</label>
+        <select name="lietotajs_id" id="lietotajs_id" required>
+            {% for lietotajs in lietotaji %}
+                <option value="{{ lietotajs[0] }}">{{ lietotajs[1] }} {{ lietotajs[2] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="zina">Ziņa:</label><br>
+        <textarea name="zina" id="zina" required></textarea><br>
+        <button type="submit">Pievienot ziņu</button>
+    </form>
+
+    <h2>Ziņojumi</h2>
+    <table>
+        <tr>
+            <th>Vārds</th>
+            <th>Uzvārds</th>
+            <th>Ziņa</th>
+        </tr>
+        {% for zina in zinas %}
+        <tr>
+            <td>{{ zina[0] }}</td>
+            <td>{{ zina[1] }}</td>
+            <td>{{ zina[2] }}</td>
+            <td>{{ zina[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
